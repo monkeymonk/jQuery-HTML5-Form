@@ -2,7 +2,7 @@
 	$.fn.placeholder = function(){
 		return this.each(function(){
 			var field = $(this),
-					label = $(this).parent().find('label[for="'+$(this).attr('id')+'"]'); // IE6 support
+					label = $('label[for="'+$(this).attr('id')+'"]'); // IE6 support
 			
 			label.css({
 				left: '-999em', position: 'absolute', top: '-999em'
