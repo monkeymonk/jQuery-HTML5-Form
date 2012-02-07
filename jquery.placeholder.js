@@ -116,22 +116,22 @@
 (function($){
 	$.fn.placeholder = function(){
 		return this.each(function(){
-			var field = $(this),
-					label = $('label[for="'+$(this).attr('id')+'"]'); // IE6 support
+			var field = $(this), label = $('label[for="' + $(this).attr('id') + '"]'), text = label.text();
 			
-			label.css({
-				left: '-999em', position: 'absolute', top: '-999em'
-			});
+			label.css({left: '-999em', position: 'absolute', top: '-999em'});
 			
 			if(!!('placeholder' in document.createElement('input')))	return;
 			
-			field.val(label.text())
+			field.val(text)
 			.bind('focusin', function(){
-				if($(this).val() == label.text())	$(this).val('');
+				if($(this).val() == text)	$(this).val('');
 			})
 			.bind('focusout', function(){
-				if($(this).val() == '')	$(this).val(label.text());
+				if($(this).val() == '')	$(this).val(text);
 			});
 		});
 	};
-})(jQuery); // jQuery('input').placeholder() by Stéphan Zych (monkeymonk.be)
+	/*
+	ex.: <label for="email_input">your@mail.tld</label> <input id="email_input" name="email" type="email" value="" placeholder="your@mail.tld" />
+	*/
+})(jQuery); // jQuery.placeholder() by Stéphan Zych (monkeymonk.be)
