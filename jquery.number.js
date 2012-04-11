@@ -5,7 +5,7 @@
 			, max: null
 			, step: null
 			//, mousewheel: true
-			, mouseIncrement: 'slow'
+			//, mouseIncrement: 'slow'
 			, upIcon: 'number-up'
 			, downIcon: 'number-down'
 		}, s = {};
