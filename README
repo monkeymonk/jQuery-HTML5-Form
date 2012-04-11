@@ -1,3 +1,7 @@
 jquery.placeholder.js
 -----
 Use HTML5 placeholder attribute in non-modern browsers.
+
+jquery.number.js
+-----
+User HTML5 input ype number in non-modern browsers. (only integer supported for now)
