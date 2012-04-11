@@ -4,7 +4,7 @@
 			min: null
 			, max: null
 			, step: null
-			, mousewheel: true
+			//, mousewheel: true
 			, mouseIncrement: 'slow'
 			, upIcon: 'number-up'
 			, downIcon: 'number-down'
