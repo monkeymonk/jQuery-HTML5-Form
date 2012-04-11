@@ -46,8 +46,8 @@
 				});
 			}, // init
 			
-			stepUp: function(){
-				var value = (parseInt($(this).val()) || 0) + s.step;
+			stepUp: function(val){
+				var value = val || ((parseInt($(this).val()) || 0) + s.step);
 				if(value > s.max)	value = s.max;
 				$(this).val(value);
 			}, // stepUp
@@ -55,8 +55,8 @@
 				methods.stepUp.apply(this, arguments);
 			}, // up (alias)
 			
-			stepDown: function(){
-				var value = (parseInt($(this).val()) || 0) - s.step;
+			stepDown: function(val){
+				var value = val || ((parseInt($(this).val()) || 0) - s.step);
 				if(value < s.min)	value = s.min;
 				$(this).val(value);
 			}, // stepDown
