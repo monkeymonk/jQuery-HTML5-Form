@@ -1,7 +1,18 @@
+jquery.number.js
+-----
+User HTML5 input ype number in non-modern browsers.
+• only integer supported for now
+
+
 jquery.placeholder.js
 -----
 Use HTML5 placeholder attribute in non-modern browsers.
+• This plugin create a div.placeholder above input type=password.
 
-jquery.number.js
+
+jquery.required.js
 -----
-User HTML5 input ype number in non-modern browsers. (only integer supported for now)
+Use HTML5 required attribute in non-modern browsers.
+• provide custom fallback using callback
+• you can specify a custom message using data-required HTML5 attribute
+• you can force plugin to be executed in modern browsers using 'override=true'
