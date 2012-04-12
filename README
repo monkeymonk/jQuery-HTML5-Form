@@ -1,6 +1,11 @@
+jquery.inputfile.js
+-----
+A simple way to make custom input file !
+
+
 jquery.number.js
 -----
-User HTML5 input ype number in non-modern browsers.
+Use HTML5 input ype number in non-modern browsers.
 • only integer supported for now
 
 
