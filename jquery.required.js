@@ -26,7 +26,7 @@
 			})
 			.closest('form')
 			.bind('submit', function(){
-				if(o.val() == '' || o.val() == o.attr('placeholder') || (o.attr('type') == '')){
+				if(o.val() == '' || o.val() == o.attr('placeholder') || !o.is(':checked')){
 					o.addClass(s.className)
 					s.callback.call(this, o, s, false);
 					return false;
