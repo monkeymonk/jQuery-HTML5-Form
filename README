@@ -7,7 +7,7 @@ User HTML5 input ype number in non-modern browsers.
 jquery.placeholder.js
 -----
 Use HTML5 placeholder attribute in non-modern browsers.
-• This plugin create a div.placeholder above input type=password.
+• this plugin create a div.placeholder above input type=password.
 
 
 jquery.required.js
