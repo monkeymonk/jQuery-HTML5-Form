@@ -32,7 +32,7 @@
 					s.callback.call(this, o, s, false);
 				} else {
 					o.removeClass(s.className);
-					s.callback.call(this, o, s, false);
+					s.callback.call(this, o, s, true);
 				}
 				
 				if(form.find('.' + s.className).length)	return false;
