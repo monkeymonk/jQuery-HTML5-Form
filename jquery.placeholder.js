@@ -1,36 +1,48 @@
 (function($){
 	$.fn.placeholder = function(options){
-		var defaults = {className: 'placeholder'}, s = $.extend({}, defaults, options);
+		var defaults = {
+			className: 'placeholder'
+		}, s = $.extend({}, defaults, options);
 		
 		return this.each(function(){
-			if('placeholder' in document.createElement('input'))	return;
+			if(!!('placeholder' in document.createElement('input')))	return;
 			
-			var o = $(this), value = o.attr('placeholder');
+			var o = $(this);
 			
-			if(this.type == 'password'){
-				var l = o.offset().left, t = o.offset().top;
+			$.each($('[placeholder]:not(:password, :button, :submit, :radio, :checkbox, select)', o), function(){
+				var value = $(this).attr('placeholder');
 				
-				o.bind('focusin', function(){
-					$(this).next('span.' + s.className).hide();
+				$(this)
+				.bind('focusin', function(){
+					if($(this).val() == value)	$(this).removeClass('placeholder').val('');
 				})
 				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).next('span.' + s.className).show();
+					if($(this).val() == '')	$(this).addClass('placeholder').val(value);
 				})
-				.after('<span class="' + s.className + '">' + value + '</span>')
-				.next('span.' + s.className)
-				.css({left: l, position: 'absolute', top: t})
-				.bind('click', function(){o.focus();});
-			} else {
-				o.bind('focusin', function(){
-					if($(this).val() == value)	$(this).removeClass(s.className).val('');
-				})
-				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).addClass(s.className).val(value);
-				})
-				.val(value).addClass(s.className);
-			}
+				.val(value).addClass('placeholder');
+			});
 			
-			o.submit(function(){
+			
+			$.each($('[placeholder]:password', o), function(){
+				var field = $(this), l = field.offset().left, t = field.offset().top, value = field.attr('placeholder');
+				
+				field
+				.bind('focusin', function(){
+					$(this).next('span.placeholder').hide();
+				})
+				.bind('focusout', function(){
+					if($(this).val() == '')	$(this).next('span.placeholder').show();
+				})
+				.after('<span class="placeholder">' + value + '</span>')
+				.next('span.placeholder')
+				.css({
+					left: l, position: 'absolute', top: t
+				})
+				.bind('click', function(){field.focus();});
+			});
+			
+			
+			o.bind('submit', function(){
 				var submit = true;
 				
 				$(this).find('[placeholder]')
