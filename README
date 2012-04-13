@@ -1,4 +1,4 @@
-###jquery.inputfile.js
+##jquery.inputfile.js
 -----
 A simple way to make custom input file !
 • this plugin wrap the input with a div.inputfile and create input.inputfile-field and button.inputfile-btn
