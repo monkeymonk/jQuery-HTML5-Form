@@ -9,37 +9,34 @@
 			
 			var o = $(this);
 			
-			$.each($('[placeholder]:not(:password, :button, :submit, :radio, :checkbox, select)', o), function(){
-				var value = $(this).attr('placeholder');
-				
-				$(this)
-				.bind('focusin', function(){
-					if($(this).val() == value)	$(this).removeClass('placeholder').val('');
-				})
-				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).addClass('placeholder').val(value);
-				})
-				.val(value).addClass('placeholder');
-			});
-			
-			
-			$.each($('[placeholder]:password', o), function(){
+			if(o.attr('type') == 'password' && o.attr('placeholder')){
 				var field = $(this), l = field.offset().left, t = field.offset().top, value = field.attr('placeholder');
 				
 				field
 				.bind('focusin', function(){
-					$(this).next('span.placeholder').hide();
+					$(this).next('input.pwd.' + s.className).hide();
 				})
 				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).next('span.placeholder').show();
+					if($(this).val() == '')	$(this).next('input.pwd.' + s.className).show();
 				})
-				.after('<span class="placeholder">' + value + '</span>')
-				.next('span.placeholder')
+				.after('<input class="pwd ' + s.className + '" type="text" value="' + value + '" />')
+				.next('input.pwd.' + s.className)
 				.css({
 					left: l, position: 'absolute', top: t
 				})
 				.bind('click', function(){field.focus();});
-			});
+			} else if((o.attr('type') || o.get(0).tagName).match(/(text|email|tel|number|range|textarea)/i) && o.attr('placeholder')){
+				var value = $(this).attr('placeholder');
+				
+				$(this)
+				.bind('focusin', function(){
+					if($(this).val() == value)	$(this).removeClass(s.className).val('');
+				})
+				.bind('focusout', function(){
+					if($(this).val() == '')	$(this).addClass(s.className).val(value);
+				})
+				.val(value).addClass(s.className);
+			}
 			
 			
 			o.bind('submit', function(){
