@@ -19,7 +19,7 @@
 				.bind('focusout', function(){
 					if($(this).val() == '')	$(this).next('input.pwd.' + s.className).show();
 				})
-				.after('<input class="pwd ' + s.className + '" type="text" value="' + value + '" />')
+				.after('<input class="pwd ' + s.className + '" type="text" value="' + value + '" readonly />')
 				.next('input.pwd.' + s.className)
 				.css({
 					left: l, position: 'absolute', top: t
