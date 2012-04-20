@@ -2,10 +2,11 @@
 	$.fn.placeholder = function(options){
 		var defaults = {
 			className: 'placeholder'
+			, override: false
 		}, s = $.extend({}, defaults, options);
 		
 		return this.each(function(){
-			if('placeholder' in document.createElement('input'))	return;
+			if(!s.override && 'placeholder' in document.createElement('input'))	return;
 			
 			var o = $(this), form = o.closest('form');
 			
@@ -32,7 +33,7 @@
 				.bind('focusout', function(){
 					if($(this).val() == value || $(this).val() == $(this).find('option:first-child').text() || !$(this).val())	$(this).addClass('placeholder');
 				})
-				.addClass('focusout');
+				.addClass('placeholder');
 			}
 			
 			if(o.is('[placeholder]:password')){
