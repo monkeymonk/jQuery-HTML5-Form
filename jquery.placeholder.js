@@ -5,52 +5,59 @@
 		}, s = $.extend({}, defaults, options);
 		
 		return this.each(function(){
-			if(!!('placeholder' in document.createElement('input')))	return;
+			if('placeholder' in document.createElement('input'))	return;
 			
-			var o = $(this);
+			var o = $(this), form = o.closest('form');
 			
-			if(o.attr('type') == 'password' && o.attr('placeholder')){
-				var field = $(this), l = field.offset().left, t = field.offset().top, value = field.attr('placeholder');
+			if(o.is('[placeholder]:not(:password, :button, :submit, :radio, :checkbox, select, :file)')){
+				var value = o.attr('placeholder');
 				
-				field
+				o
 				.bind('focusin', function(){
-					$(this).next('input.pwd.' + s.className).hide();
+					if($(this).val() == value)	$(this).removeClass('placeholder').val('');
 				})
 				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).next('input.pwd.' + s.className).show();
+					if($(this).val() == '')	$(this).addClass('placeholder').val(value);
 				})
-				.after('<input class="pwd ' + s.className + '" type="text" value="' + value + '" readonly />')
-				.next('input.pwd.' + s.className)
+				.val(value).addClass('placeholder');
+			}
+			
+			if(o.is('select')){
+				var value = o.attr('placeholder');
+				
+				o
+				.bind('focusin', function(){
+					if($(this).val() == value)	$(this).removeClass('placeholder');
+				})
+				.bind('focusout', function(){
+					if($(this).val() == value || $(this).val() == $(this).find('option:first-child').text() || !$(this).val())	$(this).addClass('placeholder');
+				})
+				.addClass('focusout');
+			}
+			
+			if(o.is('[placeholder]:password')){
+				var l = o.offset().left, t = o.offset().top, value = o.attr('placeholder');
+				
+				o
+				.bind('focusin', function(){
+					$(this).next('span.placeholder').hide();
+				})
+				.bind('focusout', function(){
+					if($(this).val() == '')	$(this).next('span.placeholder').show();
+				})
+				.after('<span class="placeholder">' + value + '</span>')
+				.next('span.placeholder')
 				.css({
 					left: l, position: 'absolute', top: t
 				})
-				.bind('click', function(){field.focus();});
-			} else if((o.attr('type') || o.get(0).tagName).match(/(text|email|tel|number|range|textarea)/i) && o.attr('placeholder')){
-				var value = $(this).attr('placeholder');
-				
-				$(this)
-				.bind('focusin', function(){
-					if($(this).val() == value)	$(this).removeClass(s.className).val('');
-				})
-				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).addClass(s.className).val(value);
-				})
-				.val(value).addClass(s.className);
+				.bind('click', function(){o.focus();});
 			}
 			
-			
-			o.bind('submit', function(){
-				var submit = true;
-				
+			form.bind('submit', function(){
 				$(this).find('[placeholder]')
 				.each(function(){
-					if($(this).val() == $(this).attr('placeholder')){
-						$(this).val('');
-						submit = false;
-					}
+					if($(this).val() == $(this).attr('placeholder'))	$(this).val('');
 				});
-				
-				return submit;
 			});
 		});
 	};
