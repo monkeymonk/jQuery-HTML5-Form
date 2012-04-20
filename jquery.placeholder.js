@@ -31,7 +31,7 @@
 					if($(this).val() == value)	$(this).removeClass('placeholder');
 				})
 				.bind('focusout', function(){
-					if($(this).val() == value || $(this).val() == $(this).find('option:first-child').text() || !$(this).val())	$(this).addClass('placeholder');
+					if($(this).val() == value || $(this).val() == '')	$(this).addClass('placeholder');
 				})
 				.addClass('placeholder');
 			}
