@@ -14,11 +14,13 @@ jquery.placeholder.js
 -----
 Use HTML5 placeholder attribute in non-modern browsers.
 • this plugin create a input.placeholder.pwd above input type=password.
+• on select, we are checking about empty value (wich mean that the first <option value="">-</option>)
+• you can force plugin to be executed in modern browsers using 'override=true'
 
 
 jquery.required.js
 -----
 Use HTML5 required attribute in non-modern browsers.
 • provide custom fallback using callback
-• you can specify a custom message using data-required HTML5 attribute
+• you can specify a custom generic message using data-required HTML5 attribute
 • you can force plugin to be executed in modern browsers using 'override=true'
