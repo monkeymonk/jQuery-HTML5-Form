@@ -15,12 +15,12 @@
 				
 				o
 				.bind('focusin', function(){
-					if($(this).val() == value)	$(this).removeClass('placeholder').val('');
+					if($(this).val() == value)	$(this).removeClass(s.className).val('');
 				})
 				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).addClass('placeholder').val(value);
+					if($(this).val() == '')	$(this).addClass(s.className).val(value);
 				})
-				.val(value).addClass('placeholder');
+				.val(value).addClass(s.className);
 			}
 			
 			if(o.is('select')){
@@ -28,12 +28,12 @@
 				
 				o
 				.bind('focusin', function(){
-					if($(this).val() == value)	$(this).removeClass('placeholder');
+					if($(this).val() == value)	$(this).removeClass(s.className);
 				})
 				.bind('focusout', function(){
-					if($(this).val() == value || $(this).val() == '')	$(this).addClass('placeholder');
+					if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className);
 				})
-				.addClass('placeholder');
+				.addClass(s.className);
 			}
 			
 			if(o.is('[placeholder]:password')){
@@ -41,13 +41,13 @@
 				
 				o
 				.bind('focusin', function(){
-					$(this).next('span.placeholder').hide();
+					$(this).next('span.' + s.className).hide();
 				})
 				.bind('focusout', function(){
-					if($(this).val() == '')	$(this).next('span.placeholder').show();
+					if($(this).val() == '')	$(this).next('span.' + s.className).show();
 				})
-				.after('<span class="placeholder">' + value + '</span>')
-				.next('span.placeholder')
+				.after('<span class="' + s.className + '">' + value + '</span>')
+				.next('span.' + s.className)
 				.css({
 					left: l, position: 'absolute', top: t
 				})
