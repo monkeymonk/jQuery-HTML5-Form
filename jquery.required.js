@@ -22,15 +22,27 @@
 					if(s.override)	o.unbind('invalid').bind('invalid.required', function(e){e.preventDefault();});
 					s.msg = o.attr('data-required') || s.msg;
 					
-					o.bind('blur.required', function(){
-						if(o.val() == '' || o.val() == o.attr('placeholder')){
-							o.addClass(s.className);
-							s.onBlur.call(this, o, s, false);
-						} else {
-							o.removeClass(s.className);
-							s.onBlur.call(this, o, s, true);
-						}
-					});
+					if(o.is('[required]:not(:checkbox, :radio)')){
+						o.bind('blur.required', function(){
+							if($(this).val() == '' || $(this).val() == $(this).attr('placeholder')){
+								$(this).addClass(s.className);
+								s.onBlur.call(this, $(this), s, false);
+							} else {
+								$(this).removeClass(s.className);
+								s.onBlur.call(this, $(this), s, true);
+							}
+						});
+					} else {
+						o.bind('change.required', function(){
+							if($(this).attr('checked') != 'checked'){
+								$(this).addClass(s.className);
+								s.onBlur.call(this, $(this), s, false);
+							} else {
+								$(this).removeClass(s.className);
+								s.onBlur.call(this, $(this), s, true);
+							}
+						});
+					}
 					
 					form.attr('novalidate', 'novalidate')
 					.bind('submit.required', function(){
