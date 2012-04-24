@@ -93,4 +93,4 @@
 	$(function(){
 		$('.tooltip').tooltip();
 	});
-})(jQuery);
+})(jQuery); // jQuery.tooltip by Stéphan Zych (monkeymonk.be)

@@ -51,7 +51,7 @@
 				<button id="submit" name="submit" type="submit">Submit</button>
 			</fieldset>
 		</form>
-		
+		<div id="test" title="test">test</div>
 		</section>
 		<footer></footer>
 	</div>
@@ -76,7 +76,7 @@
 		$(function(){
 			$('[required]').required({
 				onBlur: function(settings, value, isFilled){
-					if(!isFilled){$(this).attr('title', settings.msg).tooltip();$(this).trigger('mouseenter');}
+					if(!isFilled){$(this).attr('title', settings.msg).tooltip().trigger('mouseenter');}
 					else	$(this).removeAttr('title').tooltip('destroy');
 				}
 			});
