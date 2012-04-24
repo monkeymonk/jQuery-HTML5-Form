@@ -17,12 +17,14 @@
 					methods.destroy.call(this);
 					
 					o.bind('mouseenter.tooltip', function(){
-						s.text = $(this).attr('title');
+						s.text = $(this).attr('title') || s.text;
 						
 						if(!s.text || s.text == '')	return;
 						
 						$(this).removeAttr('title');
-						tooltip.css({opacity: 0}).html(s.text).appendTo('body');
+						
+						if(!$('#' + s.idName).length)	tooltip.appendTo('body');
+						$('#' + s.idName).css({opacity: 0}).html(s.text);
 						
 						methods.show.call(this);
 					})

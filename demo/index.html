@@ -76,7 +76,7 @@
 		$(function(){
 			$('[required]').required({
 				onBlur: function(settings, value, isFilled){
-					if(!isFilled)	$(this).attr('title', settings.msg).tooltip();
+					if(!isFilled){$(this).attr('title', settings.msg).tooltip();$(this).trigger('mouseenter');}
 					else	$(this).removeAttr('title').tooltip('destroy');
 				}
 			});
