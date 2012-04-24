@@ -74,7 +74,12 @@
 	<script src="../src/jquery.validate.js"></script>
 	<script>
 		$(function(){
-			// do something...
+			$('[required]').required({
+				onBlur: function(settings, value, isFilled){
+					if(!isFilled)	$(this).attr('title', settings.msg).tooltip();
+					else	$(this).removeAttr('title').tooltip('destroy');
+				}
+			});
 		});
 	</script>
 </body>

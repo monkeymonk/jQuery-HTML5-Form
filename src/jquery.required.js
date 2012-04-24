@@ -2,7 +2,7 @@
 	$.fn.required = function(method){
 		var defaults = {
 			className: 'required'
-			, msg: '' // custom message to display (via callback), can be set by 'data-required' attribute
+			, msg: 'Required field' // custom message to display (via callback), can be set by 'data-required' attribute
 			, override: true // force browser to use plugin instead of HTML5 core
 			, onBlur: function(settings, value, isFilled){}
 			, onSubmit: function(settings, isFilled){} // return false to prevent submit
@@ -25,7 +25,7 @@
 					if(o.is('[required]:not(:checkbox, :radio)')){
 						o.bind('blur.required', function(){
 							var value = $(this).val();
-							if(value == '' || value == $(this).attr('placeholder')){debug('ok');
+							if(value == '' || value == $(this).attr('placeholder')){
 								$(this).addClass(s.className);
 								s.onBlur.call(this, s, value, false);
 							} else {
