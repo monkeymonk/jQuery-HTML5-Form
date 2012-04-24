@@ -10,14 +10,16 @@
 			
 			var o = $(this), form = o.closest('form');
 			
+			o.unbind('.placeholder');
+			
 			if(o.is('[placeholder]:not(:password, :button, :submit, :radio, :checkbox, select, :file)')){
 				var value = o.attr('placeholder');
 				
 				o
-				.bind('focusin', function(){
+				.bind('focusin.placeholder', function(){
 					if($(this).val() == value)	$(this).removeClass(s.className).val('');
 				})
-				.bind('focusout', function(){
+				.bind('focusout.placeholder', function(){
 					if($(this).val() == '')	$(this).addClass(s.className).val(value);
 				})
 				.val(value).addClass(s.className);
@@ -27,10 +29,10 @@
 				var value = o.attr('placeholder');
 				
 				o
-				.bind('focusin', function(){
+				.bind('focusin.placeholder', function(){
 					if($(this).val() == value)	$(this).removeClass(s.className);
 				})
-				.bind('focusout', function(){
+				.bind('focusout.placeholder', function(){
 					if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className);
 				})
 				.addClass(s.className);
@@ -40,10 +42,10 @@
 				var l = o.offset().left, t = o.offset().top, value = o.attr('placeholder');
 				
 				o
-				.bind('focusin', function(){
+				.bind('focusin.placeholder', function(){
 					$(this).next('span.' + s.className).hide();
 				})
-				.bind('focusout', function(){
+				.bind('focusout.placeholder', function(){
 					if($(this).val() == '')	$(this).next('span.' + s.className).show();
 				})
 				.after('<span class="' + s.className + '">' + value + '</span>')
@@ -51,10 +53,11 @@
 				.css({
 					left: l, position: 'absolute', top: t
 				})
-				.bind('click', function(){o.focus();});
+				.bind('click.placeholder', function(){o.focus();});
 			}
 			
-			form.bind('submit', function(){
+			form.unbind('.placeholder')
+			.bind('submit.placeholder', function(){
 				$(this).find('[placeholder]')
 				.each(function(){
 					if($(this).val() == $(this).attr('placeholder'))	$(this).val('');
