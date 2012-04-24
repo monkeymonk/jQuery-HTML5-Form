@@ -29,3 +29,8 @@ Use HTML5 required attribute in non-modern browsers.
 
 ##jquery.validate.js
 Use HTML5 pattern attribute and input type email|url|tel|number.
+
+
+##jquery.tooltip.js
+Simple tooltip plugin, used to display error message (jquery.required / jquery.validate).
+
