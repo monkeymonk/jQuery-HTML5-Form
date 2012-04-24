@@ -4,6 +4,12 @@ A simple way to make custom input file !
 • this plugin wrap the input with a div.inputfile and create input.inputfile-field and button.inputfile-btn
 
 
+jquery.maxLength.js
+-----
+Use HTML5 maxlength attribute.
+• provide callback (onEdit & onLimit).
+
+
 jquery.number.js
 -----
 Use HTML5 input type number in non-modern browsers.
