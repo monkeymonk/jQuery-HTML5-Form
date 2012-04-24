@@ -1,4 +1,4 @@
-##jquery.inputfile.js
+##jquery.inputFile.js
 A simple way to make custom input file !
 * this plugin wrap the input with a `div.inputfile` and create `input.inputfile-field` and `button.inputfile-btn`
 
@@ -25,3 +25,7 @@ Use HTML5 required attribute in non-modern browsers.
 * provide custom fallback using callback
 * you can specify a custom generic message using data-required HTML5 attribute
 * you can force plugin to be executed in modern browsers using `override=true`
+
+
+##jquery.validate.js
+Use HTML5 pattern attribute and input type email|url|tel|number.
