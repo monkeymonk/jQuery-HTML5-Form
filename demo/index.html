@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+	<meta charset="UTF-8" />
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" /><![endif]-->
+	<!--[if lt IE 7]><meta http-equiv="imagetoolbar" content="false" /><![endif]-->
+	
+	<title></title>
+	
+	<link rel="stylesheet" href="css/bootstrap.css?v=1" />
+	<link rel="stylesheet" href="css/style.css?v=1" />
+	
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="home">
+	<div id="container">
+		<header></header>
+		<section id="main">
+		
+		<form action="#" method="post" accept-charset="utf-8">
+			<fieldset class="well">
+				
+				<label for="email">Email*</label>
+				<input id="email" name="email" type="email" value="" placeholder="Email (validate)" required />
+				<br/>
+				
+				<label for="pass">Password*</label>
+				<input id="pass" name="pass" type="password" value="" placeholder="Type a password (required)" required />
+				<br/>
+				
+				<label for="file">File</label>
+				<input id="file" name="file" type="file" value="" placeholder="Choose a file to upload" />
+				<br/>
+				
+				<label for="number">Number</label>
+				<input id="number" name="number" type="number" min="0" max="200" step="1" value="" placeholder="Test" />
+				<br/>
+				<!--input id="number2" name="number2" type="number" min="0.00" max="200.00" step="0.01" value="" placeholder="Test2" />
+				<br/-->
+				
+				<label for="text">Text*</label>
+				<input id="text" name="text" type="text" value="" placeholder="Type some text (required)" required />
+				<br/>
+				
+				<label for="textarea">Textarea*</label>
+				<textarea id="textarea" name="textarea" placeholder="Type some comment here (max. 100)" maxlength="100"></textarea>
+				<br/>
+				
+				<label for="checkbox" class="checkbox"><input id="checkbox" name="checkbox" type="checkbox" required /> Checkbox*</label>
+				
+				<button id="submit" name="submit" type="submit">Submit</button>
+			</fieldset>
+		</form>
+		
+		</section>
+		<footer></footer>
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+	<script>
+	var debugMode = true;
+	var debug = function(msg){
+		if(!debugMode)	return;
+		if(window.console && window.console.log)	window.console.log(msg);
+		else	alert(msg);
+	};
+	</script>
+	<script src="js/jquery.inputfile.js"></script>
+	<script src="js/jquery.maxlength.js"></script>
+	<script src="js/jquery.number.js"></script>
+	<script src="js/jquery.placeholder.js"></script>
+	<script src="js/jquery.required.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script>
+		$(function(){
+			// do something...
+		});
+	</script>
+</body>
+</html>
