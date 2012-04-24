@@ -64,7 +64,7 @@
 				});
 			});
 		});
-	};
+	}; // placeholder
 	
 	$(function(){
 		$('[placeholder]').placeholder();
