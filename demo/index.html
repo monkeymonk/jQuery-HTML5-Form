@@ -17,41 +17,40 @@
 		<header></header>
 		<section id="main">
 		
-		<form action="#" method="post" accept-charset="utf-8">
-			<fieldset class="well">
-				
-				<label for="email">Email*</label>
-				<input id="email" name="email" type="email" value="" placeholder="Email (validate)" required />
-				<br/>
-				
-				<label for="pass">Password*</label>
-				<input id="pass" name="pass" type="password" value="" placeholder="Type a password (required)" required />
-				<br/>
-				
-				<label for="file">File</label>
-				<input id="file" name="file" type="file" value="" placeholder="Choose a file to upload" />
-				<br/>
-				
-				<label for="number">Number</label>
-				<input id="number" name="number" type="number" min="0" max="200" step="1" value="" placeholder="Test" />
-				<br/>
-				<!--input id="number2" name="number2" type="number" min="0.00" max="200.00" step="0.01" value="" placeholder="Test2" />
-				<br/-->
-				
-				<label for="text">Text*</label>
-				<input id="text" name="text" type="text" value="" placeholder="Type some text (required)" required />
-				<br/>
-				
-				<label for="textarea">Textarea*</label>
-				<textarea id="textarea" name="textarea" placeholder="Type some comment here (max. 100)" maxlength="100" required></textarea>
-				<br/>
-				
-				<label for="checkbox" class="checkbox"><input id="checkbox" name="checkbox" type="checkbox" required /> Checkbox*</label>
-				
-				<button id="submit" name="submit" type="submit">Submit</button>
-			</fieldset>
-		</form>
-		<div id="test" title="test">test</div>
+			<form action="#" method="post" accept-charset="utf-8">
+				<fieldset class="well">
+					
+					<label for="email">Email*</label>
+					<input id="email" name="email" type="email" value="" placeholder="Email (validate)" required />
+					<br/>
+					
+					<label for="pass">Password*</label>
+					<input id="pass" name="pass" type="password" value="" placeholder="Type a password (required)" required />
+					<br/>
+					
+					<label for="file">File</label>
+					<input id="file" name="file" type="file" value="" placeholder="Choose a file to upload" />
+					<br/>
+					
+					<label for="number">Number</label>
+					<input id="number" name="number" type="number" min="0" max="200" step="1" value="" placeholder="Test" />
+					<br/>
+					<!--input id="number2" name="number2" type="number" min="0.00" max="200.00" step="0.01" value="" placeholder="Test2" />
+					<br/-->
+					
+					<label for="text">Text*</label>
+					<input id="text" name="text" type="text" value="" placeholder="Type some text (required)" required />
+					<br/>
+					
+					<label for="textarea">Textarea*</label>
+					<textarea id="textarea" name="textarea" placeholder="Type some comment here (max. 100)" maxlength="100" required></textarea>
+					<br/>
+					
+					<label for="checkbox" class="checkbox"><input id="checkbox" name="checkbox" type="checkbox" required /> Checkbox*</label>
+					
+					<button id="submit" class="tooltip" name="submit" type="submit" title="Click to submit">Submit</button>
+				</fieldset>
+			</form>
 		</section>
 		<footer></footer>
 	</div>
@@ -76,7 +75,7 @@
 		$(function(){
 			$('[required]').required({
 				onBlur: function(settings, value, isFilled){
-					if(!isFilled){$(this).attr('title', settings.msg).tooltip().trigger('mouseenter');}
+					if(!isFilled){$(this).attr('title', settings.msg).tooltip('show');}//.trigger('mouseenter');}
 					else	$(this).removeAttr('title').tooltip('destroy');
 				}
 			});
