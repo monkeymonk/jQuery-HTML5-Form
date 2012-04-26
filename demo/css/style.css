@@ -82,3 +82,95 @@
 			left: 50%;
 			margin-left: -10px;
 		}
+
+#tooltip.success,
+#tooltip.warning,
+#tooltip.error,
+#tooltip.information{
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: none;
+	-khtml-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	font: normal normal 11px/16px Verdana,Arial,Helvetica,sans-serif;
+	text-shadow: none;
+}
+#tooltip.success{
+	background: #D6F7B9;
+	border: 1px solid #87BA5A;
+	color: #87BA5A;
+}
+	#tooltip.success:after{}
+		#tooltip.left.success:after{
+			border-left-color: #87BA5A;
+		}
+		#tooltip.top.success:after{
+			border-bottom-color: #87BA5A;
+		}
+		#tooltip.right.success:after{
+			border-right-color: #87BA5A;
+		}
+		#tooltip.bottom.success:after{
+			border-top-color: #87BA5A;
+		}
+#tooltip.warning{
+	background: #F9EDCE;
+	border: 1px solid #E7A404;
+	color: #F29400;
+}
+	#tooltip.warning:after{}
+		#tooltip.left.warning:after{
+			border-left-color: #E7A404;
+		}
+		#tooltip.top.warning:after{
+			border-bottom-color: #E7A404;
+		}
+		#tooltip.right.warning:after{
+			border-right-color: #E7A404;
+		}
+		#tooltip.bottom.warning:after{
+			border-top-color: #E7A404;
+		}
+#tooltip.error{
+	background: #F2DEDF;
+	border: 1px solid #CAB8B8;
+	color: #CB190D;
+}
+	#tooltip.error:after{}
+		#tooltip.left.error:after{
+			border-left-color: #CB190D;
+		}
+		#tooltip.top.error:after{
+			border-bottom-color: #CB190D;
+		}
+		#tooltip.right.error:after{
+			border-right-color: #CB190D;
+		}
+		#tooltip.bottom.error:after{
+			border-top-color: #CB190D;
+		}
+#tooltip.information{
+	background: #f5f5f5;
+	border: 1px solid #aaa;
+	color: #58595B;
+}
+	#tooltip.information:after{}
+		#tooltip.left.information:after{
+			border-left-color: #aaa;
+		}
+		#tooltip.top.information:after{
+			border-bottom-color: #aaa;
+		}
+		#tooltip.right.information:after{
+			border-right-color: #aaa;
+		}
+		#tooltip.bottom.information:after{
+			border-top-color: #aaa;
+		}

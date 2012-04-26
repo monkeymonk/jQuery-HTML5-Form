@@ -16,11 +16,13 @@
 				var value = o.attr('placeholder');
 				
 				o
-				.bind('focusin.placeholder', function(){
-					if($(this).val() == value)	$(this).removeClass(s.className).val('');
-				})
-				.bind('focusout.placeholder', function(){
-					if($(this).val() == '')	$(this).addClass(s.className).val(value);
+				.bind({
+					'focusin.placeholder': function(){
+						if($(this).val() == value)	$(this).removeClass(s.className).val('');
+					}
+					, 'focusout.placeholder': function(){
+						if($(this).val() == '')	$(this).addClass(s.className).val(value);
+					}
 				})
 				.val(value).addClass(s.className);
 			}
@@ -29,11 +31,13 @@
 				var value = o.attr('placeholder');
 				
 				o
-				.bind('focusin.placeholder', function(){
-					if($(this).val() == value)	$(this).removeClass(s.className);
-				})
-				.bind('focusout.placeholder', function(){
-					if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className);
+				.bind({
+					'focusin.placeholder': function(){
+						if($(this).val() == value)	$(this).removeClass(s.className);
+					}
+					, 'focusout.placeholder': function(){
+						if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className);
+					}
 				})
 				.addClass(s.className);
 			}
@@ -42,11 +46,13 @@
 				var l = o.offset().left, t = o.offset().top, value = o.attr('placeholder');
 				
 				o
-				.bind('focusin.placeholder', function(){
-					$(this).next('span.' + s.className).hide();
-				})
-				.bind('focusout.placeholder', function(){
-					if($(this).val() == '')	$(this).next('span.' + s.className).show();
+				.bind({
+					'focusin.placeholder': function(){
+						$(this).next('span.' + s.className).hide();
+					}
+					, 'focusout.placeholder': function(){
+						if($(this).val() == '')	$(this).next('span.' + s.className).show();
+					}
 				})
 				.after('<span class="' + s.className + '">' + value + '</span>')
 				.next('span.' + s.className)

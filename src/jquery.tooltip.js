@@ -60,6 +60,8 @@
 				pos = methods.place.call(this);
 				
 				tooltip.animate({pos: '+=10', opacity: 1}, 50);
+				
+				s.onShow.call(o, tip, tooltip);
 			}, // show
 			
 			hide: function(){
@@ -68,6 +70,8 @@
 				tooltip.animate({top: '-=10', opacity: 0}, 50, function(){
 					$(this).css({left: '-999em'});
 					o.attr('title', tip);
+					
+					s.onHide.call(o, tip, tooltip);
 				});
 			}, // hide
 			
@@ -117,6 +121,13 @@
 	}; // tooltip
 	
 	$(function(){
-		$('.tooltip').tooltip();
+		$('.tooltip, [data-tooltip]').tooltip({
+			onShow: function(tip, tooltip){
+				if($(this).attr('data-tooltip-class'))	tooltip.addClass($(this).attr('data-tooltip-class'));
+			}
+			, onHide: function(tip, tooltip){
+				tooltip.removeClass($(this).attr('data-tooltip-class'));
+			}
+		});
 	});
 })(jQuery); // jQuery.tooltip by Stéphan Zych (monkeymonk.be)
