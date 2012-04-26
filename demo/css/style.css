@@ -33,38 +33,52 @@
 	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 	color: #fff;
 	font: normal normal 0.85em/1.3em Ubuntu, sans-serif;
+	max-width: 300px;
 	padding: 10px;
 	position: absolute;
-	text-align: center;
+	text-align: left;
 	text-shadow: 0 1px rgba(0, 0, 0, .5);
 	z-index: 100;
 }
 	#tooltip:after{
-		border-left: 10px solid transparent;
-		border-right: 10px solid transparent;
-		border-top-color: #333;
-		border-top: 10px solid rgba(0, 0, 0, .7);
-		bottom: -10px;
 		content: '';
 		height: 0;
-		left: 50%;
-		margin-left: -10px;
 		position: absolute;
 		width: 0;
 	}
 		#tooltip.left:after{
-			left: 10px;
-			margin: 0;
-		}
-		#tooltip.right:after{
-			left: auto;
-			margin: 0;
-			right: 10px;
+			border-bottom: 10px solid transparent;
+			border-left-color: #333;
+			border-left: 10px solid rgba(0, 0, 0, .7);
+			border-top: 10px solid transparent;
+			margin-top: -10px;
+			right: -10px;
+			top: 50%;
 		}
 		#tooltip.top:after{
 			border-bottom-color: #333;
-			border-bottom: 10px solid rgba(0, 0, 0, .6);
-			border-top-color: transparent;
-			bottom: auto;
-			top: -20px;
+			border-bottom: 10px solid rgba(0, 0, 0, .7);
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			left: 50%;
+			margin-left: -10px;
+			top: -10px;
+		}
+		#tooltip.right:after{
+			border-bottom: 10px solid transparent;
+			border-right-color: #333;
+			border-right: 10px solid rgba(0, 0, 0, .7);
+			border-top: 10px solid transparent;
+			left: -10px;
+			margin-top: -10px;
+			top: 50%;
+		}
+		#tooltip.bottom:after{
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top-color: #333;
+			border-top: 10px solid rgba(0, 0, 0, .7);
+			bottom: -10px;
+			left: 50%;
+			margin-left: -10px;
 		}
