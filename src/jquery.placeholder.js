@@ -1,57 +1,57 @@
-(function($){
+;(function($){
 	$.fn.placeholder = function(options){
 		var defaults = {
 			className: 'placeholder'
 			, override: false
-		}, s = $.extend({}, defaults, options);
+		}, s = $.extend({}, defaults, options)
 		
 		return this.each(function(){
-			if(!s.override && 'placeholder' in document.createElement('input'))	return;
+			if(!s.override && 'placeholder' in document.createElement('input'))	return
 			
-			var o = $(this), form = o.closest('form');
+			var o = $(this), form = o.closest('form')
 			
-			o.unbind('.placeholder');
+			o.unbind('.placeholder')
 			
 			if(o.is('[placeholder]:not(:password, :button, :submit, :radio, :checkbox, select, :file)')){
-				var value = o.attr('placeholder');
+				var value = o.attr('placeholder')
 				
 				o
 				.bind({
 					'focusin.placeholder': function(){
-						if($(this).val() == value)	$(this).removeClass(s.className).val('');
+						if($(this).val() == value)	$(this).removeClass(s.className).val('')
 					}
 					, 'focusout.placeholder': function(){
-						if($(this).val() == '')	$(this).addClass(s.className).val(value);
+						if($(this).val() == '')	$(this).addClass(s.className).val(value)
 					}
 				})
-				.val(value).addClass(s.className);
+				.val(value).addClass(s.className)
 			}
 			
 			if(o.is('select')){
-				var value = o.attr('placeholder');
+				var value = o.attr('placeholder')
 				
 				o
 				.bind({
 					'focusin.placeholder': function(){
-						if($(this).val() == value)	$(this).removeClass(s.className);
+						if($(this).val() == value)	$(this).removeClass(s.className)
 					}
 					, 'focusout.placeholder': function(){
-						if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className);
+						if($(this).val() == value || $(this).val() == '')	$(this).addClass(s.className)
 					}
 				})
-				.addClass(s.className);
+				.addClass(s.className)
 			}
 			
 			if(o.is('[placeholder]:password')){
-				var l = o.offset().left, t = o.offset().top, value = o.attr('placeholder');
+				var l = o.offset().left, t = o.offset().top, value = o.attr('placeholder')
 				
 				o
 				.bind({
 					'focusin.placeholder': function(){
-						$(this).next('span.' + s.className).hide();
+						$(this).next('span.' + s.className).hide()
 					}
 					, 'focusout.placeholder': function(){
-						if($(this).val() == '')	$(this).next('span.' + s.className).show();
+						if($(this).val() == '')	$(this).next('span.' + s.className).show()
 					}
 				})
 				.after('<span class="' + s.className + '">' + value + '</span>')
@@ -59,20 +59,20 @@
 				.css({
 					left: l, position: 'absolute', top: t
 				})
-				.bind('click.placeholder', function(){o.focus();});
+				.bind('click.placeholder', function(){o.focus()})
 			}
 			
 			form.unbind('.placeholder')
 			.bind('submit.placeholder', function(){
 				$(this).find('[placeholder]')
 				.each(function(){
-					if($(this).val() == $(this).attr('placeholder'))	$(this).val('');
-				});
-			});
-		});
-	}; // placeholder
+					if($(this).val() == $(this).attr('placeholder'))	$(this).val('')
+				})
+			})
+		})
+	} // placeholder
 	
 	$(function(){
-		$('[placeholder]').placeholder();
-	});
-})(jQuery); // jQuery.placeholder() by Stéphan Zych (monkeymonk.be)
+		$('[placeholder]').placeholder()
+	})
+})(jQuery) // jQuery.placeholder() by Stéphan Zych (monkeymonk.be)
