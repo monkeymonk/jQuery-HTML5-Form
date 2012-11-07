@@ -1,4 +1,3 @@
-
 (function($) {
 	"use strict";
 	
@@ -97,4 +96,4 @@
 		
 	}; // $.fn.required
 	
-})(jQuery);
+})(jQuery); // jQuery.placeholder() by Stéphan Zych (monkeymonk.be)
