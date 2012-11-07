@@ -96,4 +96,4 @@
 		
 	}; // $.fn.required
 	
-})(jQuery); // jQuery.placeholder() by Stéphan Zych (monkeymonk.be)
+})(jQuery); // jQuery.required() by Stéphan Zych (monkeymonk.be)
