@@ -22,6 +22,7 @@ Use HTML5 placeholder attribute in non-modern browsers.
 
 ##jquery.required.js
 (please, use http://monkeymonk.github.com/jquery.required.js/)
+
 Use HTML5 required attribute in non-modern browsers.
 * provide custom fallback using callback
 * you can specify a custom generic message using data-required HTML5 attribute
