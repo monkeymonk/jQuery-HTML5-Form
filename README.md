@@ -20,7 +20,7 @@ Use HTML5 placeholder attribute in non-modern browsers.
 * you can force plugin to be executed in modern browsers using `override=true`
 
 
-##jquery.required.js
+##jquery.required.js (new version, new repo http://monkeymonk.github.com/jquery.required.js/)
 Use HTML5 required attribute in non-modern browsers.
 * provide custom fallback using callback
 * you can specify a custom generic message using data-required HTML5 attribute
